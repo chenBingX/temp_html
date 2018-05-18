@@ -5,8 +5,7 @@
   
   [![](https://img.shields.io/badge/SuperTextView-v3.0-brightgreen.svg)](https://github.com/chenBingX/SuperTextView)    [![](https://img.shields.io/badge/License-Apache--2.0-blue.svg)](https://github.com/chenBingX/SuperTextView#license)    [![Insight.io](https://www.insight.io/repoBadge/github.com/tesseract-ocr/tesseract)](https://insight.io/github.com/chenBingX/SuperTextView)  
   
-  
-<img src="http://ogemdlrap.bkt.clouddn.com/SuperTextView_yuan%202.png" width=130 height=130 align=right alt="SuperTextView">  
+
 
 从 **SuperTextView** 诞生之初，便始终坚持一个愿景，即帮助 Android 开发者快速愉悦的去构建一个应用。  
 
