@@ -2,7 +2,7 @@
 
 <img src="https://raw.githubusercontent.com/chenBingX/img/master/stv/SuperTextViewyuan.png" width=230 height=230 align=right alt="SuperTextView">
 
-  本篇文档将详细的讲解目前 **SuperTextView** 的每一个功能，以便开发者能够快速上手。
+  本篇文档将详细的讲解目前 **SuperTextView** 所支持的每一个功能，以便开发者能够快速上手。
 
 # 1. 获取 SuperTextView
 
@@ -114,6 +114,18 @@
   //与isShowState类似
   app:stv_isShow2State="true"
 
+  # 修改 drawable 的颜色
+  app:stv_state_drawable_tint="@color/gray"
+
+  # 修改 drawable2 的颜色
+  app:stv_state_drawable2_tint="@color/red"
+
+  # 修改 drawable 的旋转角度
+  app:stv_state_drawable_rotate="90"
+
+  # 修改 drawable2 的旋转角度
+  app:stv_state_drawable2_rotate="90"
+
   //是否开启文字描边功能。
   //注意，启用这个模式之后通过setTextColor()设置的颜色将会被覆盖。
   //你需要通过text_fill_color来设置文字的颜色。
@@ -180,6 +192,8 @@
   // topToBottom：上 -> 下
   // bottomToTop：下 -> 上
   app:stv_textShaderMode="leftToRight"
+
+
   />
   ```
 
