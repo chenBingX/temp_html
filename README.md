@@ -1,29 +1,32 @@
 # SuperTextView 开发参考文档
 
-<img src="https://raw.githubusercontent.com/chenBingX/img/master/stv/SuperTextView_yuan 2.png" width=230 height=230 align=right alt="SuperTextView">
-
-  一直以来 **SuperTextView** 的使命，就是帮助 Android 开发者得心应手的构建 Android 应用。
-
-  **SuperTextView** 是一个高效的、全能的 **Android** 控件。通过 **SuperTextView** ，你可以快速实现圆角背景，设置渐变色背景，给控件和文字描边，为控件增加状态图，添加按压时文字或背景变色效果，通过 **Adjuster** 模块快速插入操作到控件绘制过程中，展示图片，甚至可以直接从网络上下载图片展示...基本上涵盖了 **Android** 日常开发中会用到的绝大部分效果。而实现这一切的代价，仅仅是给 **SuperTextView** 设置一个属性。**SuperTextView** 可以帮助开发者高效、便捷、优雅的完成需求开发。
+<img src="https://raw.githubusercontent.com/chenBingX/img/master/stv/SuperTextViewyuan 2.png" width=230 height=230 align=right alt="SuperTextView">
 
   本篇文档将详细的讲解目前 **SuperTextView** 的每一个功能，以便开发者能够快速上手。
 
 # 1. 获取 SuperTextView
 
 
-  - Gradle下添加依赖：
+  - 在你的**build.gradle**中加入：
 
-  ```
-  dependencies {
-  compile 'com.github.chenBingX:SuperTextView:v3.1.1'
-  }
-  ```
+    ```
+    allprojects {
+        repositories {
+            ...
+            maven { url 'https://jitpack.io' }
+        }
+    }
+
+    dependencies {
+        compile 'com.github.chenBingX:SuperTextView:v3.1.3'
+    }
+    ```
 
   - 项目地址
 
   [https://github.com/chenBingX/SuperTextView](https://github.com/chenBingX/SuperTextView)
 
-  **注：关注项目以优先获得最新版本。**
+  **注：关注本项目以实时获得最新版本信息。**
 
 # 2. SuperTextView 属性预览
 
@@ -828,7 +831,7 @@ app:stv_textShaderMode="leftToRight"
 
 > - 如果你喜欢 [**SuperTextView**](https://github.com/chenBingX/SuperTextView)，希望能到 [**Github**](https://github.com/chenBingX/SuperTextView) 点个 **star** [🌟](https://github.com/chenBingX/SuperTextView) 哦！
 
-> - **CoorChice** 会不定期的在博客平台分享干货，快进入 [CoorChice的【个人主页】](https://juejin.im/user/57fc43b67db2a200595ffd94) 关注一波吧。
+> - 此外，**CoorChice** 会不定期的在博客平台分享干货，内容包括 **Android 相关技术**、**机器学习**、**算法**、**新的技术**，以及**一些对个人发展提升的感悟和思考**。快进入 [CoorChice的【个人主页】](https://juejin.im/user/57fc43b67db2a200595ffd94) 关注一波吧。
 
 **文档结束。更多例子可以Clone项目到本地学习，祝你使用愉快！**
 
