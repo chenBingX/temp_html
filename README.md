@@ -1,5 +1,7 @@
 # SuperTextView 开发参考文档
 
+> - SuperTextView 指定官方交流群：775951525
+
 <img src="https://raw.githubusercontent.com/chenBingX/img/master/stv/SuperTextViewyuan.png" width=230 height=230 align=right alt="SuperTextView">
 
   本篇文档将详细的讲解目前 **SuperTextView** 所支持的每一个功能，以便开发者能够快速上手。
