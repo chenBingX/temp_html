@@ -1,12 +1,20 @@
-# SuperTextView 开发参考文档
+# SuperTextView 最全开发指南
 
-> - SuperTextView 指定官方交流群：775951525
+### SuperTextView 指定官方交流群：775951525
+
+[ 📲 点击链接，下载体验 **Demo**](https://raw.githubusercontent.com/chenBingX/img/master/%E5%85%B6%E5%AE%83%E6%96%87%E4%BB%B6/STVDemo.apk)
 
 <img src="https://raw.githubusercontent.com/chenBingX/img/master/stv/SuperTextViewyuan.png" width=230 height=230 align=right alt="SuperTextView">
 
-  本篇文档将详细的讲解目前 **SuperTextView** 所支持的每一个功能，以便开发者能够快速上手。
+嘿，开发者您好，欢迎使用 **SuperTextView** ！感谢您及数万位 **Android** 开发者的信赖 😘
 
-# 1. 获取 SuperTextView
+在过去 1 年半的时间里，**SuperTextView** 经过了多次迭代和上百次的 **commit**，已经被广泛应用于各类型商业 App 中，经受住了千万级日活的考验。相信  **SuperTextView**  也能为您带来开发体验上的提升，以及协助您构建或改进出更加精美的应用。
+
+如果您是初次使用 **SuperTextView**，那么这篇文档将会向您详细的讲解 **SuperTextView** 的每一项功能，以便您能快速上手。
+如果您是  **SuperTextView** 老粉，通过这篇文档您也许会发现一些之前未曾涉及到便捷功能。
+
+
+# 1. 获取最新版本的 SuperTextView
 
 
   - 在你的**build.gradle**中加入：
@@ -20,7 +28,7 @@
     }
 
     dependencies {
-        compile 'com.github.chenBingX:SuperTextView:v3.1.3'
+        compile 'com.github.chenBingX:SuperTextView:v3.1.4'
     }
     ```
 
@@ -28,11 +36,15 @@
 
   [https://github.com/chenBingX/SuperTextView](https://github.com/chenBingX/SuperTextView)
 
-  **注：关注本项目以实时获得最新版本信息。**
+  **注：关注本项目以及时获得最新版本信息。**
 
-# 2. SuperTextView 属性预览
+# 2. SuperTextView 支持的属性
 
-  **SuperTextView** 的绝大部分属性均支持在xml中配置，设置后即预览到效果。
+对于 **SuperTextView** 说支持的绝大部分酷炫的效果，开发者均可以通过在 **xml** 布局文件中，通过简单的属性配置就能够实现。并且，借助 **AndroidStudio** 的 **Preview** 插件，可以实时的预览这些效果。
+
+![](https://raw.githubusercontent.com/chenBingX/img/master/stv/stv_xml编辑.png)
+
+以下是目前 **SuperTextView** 所支持的所有属性。
 
   ```
 <SuperTextView
@@ -202,26 +214,28 @@
 # 3. SuperTextView Api
 
   [点击此处，查看详细的《SuperTextView Api文档》](https://chenbingx.github.io/SuperTextView/SuperTextView-doc/index.html)
-  
+
 # 4. 开发指南
 
-## 4.1 SuperTextView中的层级
-  在 **SuperTextView** 中，有层级划分的概念。
+该部分将会详细讲解目前 **SuperTextView** 所支持功能，以及如何使用这些能力来创造令人惊叹的应用。
+
+## 4.1 SuperTextView 中的层级
+  在 **SuperTextView** 中，将绘制内容划分为了 **4** 个层级。了解 **SuperTextView** 中的层级设计，将会有助于开发者更加合理的组织 **UI** 逻辑。
 
 ![](https://raw.githubusercontent.com/chenBingX/img/master/stv/SuperTextView层级.png)
 
-  **1.Background层**：View的`Background`背景层。
+  **1.Background层**：View的 `Background` 背景层。
 
-  **2.背景层**：即通过`app:stv_solid`设置的纯色背景层。在 `SuperTextView` 中通常将该层视做背景层，而不是View的`Background`。
+  **2.背景层**：即通过 `app:stv_solid` 设置的纯色背景层。在 `SuperTextView` 中通常将该层视做背景层，而不是View的 `Background`。就是说，当我们设置了背景层色后，VIew 本身的 `Background` 将会被覆盖。
 
-  **3.Drawable层**：`SuperTextView`的Drawable所在的层级。如果你希望通过 `SuperTextView` 来展示图片，就是在该层展示。
+  **3.Drawable层**：`SuperTextView` 的 **Drawable** 所在的层级。如果你希望通过 `SuperTextView` 来展示图片，就是在该层展示。从 **v2.0** 版本开始，**SuperTextView** 的 **1** 号 **Drawable** 可以被支持用于作为 **SuperTextView** 的背景图片，这意味着当开发者这么做时，通过 **solid** 属性设置的背景颜色将会被覆盖。
 
   **4.文字层**：即绘制文字的层级。
 
-  理解层级的概念对于后面将要讲述的 **Adjuster** 很有帮助。
+  理解层级的概念，对于后面将要讲述的 **Adjuster** 很有帮助。
 
 ## 4.2 设置圆角
-  圆角化功能是 **SuperTextView** 最基本的功能，你可以在xml文件或者Java中进行设置。
+  圆角化功能是 **SuperTextView** 最基本的功能，你可以在 **xml** 布局文件或者 **Java** 中进行设置。
 
   在xml中：
 
@@ -236,9 +250,9 @@
 
 ![](https://raw.githubusercontent.com/chenBingX/img/master/stv/圆角矩形.png)
 
-  圆角化的设置仅对 **SuperTextView** 的【背景层】，或者将`Drawble`用于展示图片（即：配置了`app:stv_drawableAsBackground="true"`）时有效。
+  圆角化的设置仅对 **SuperTextView** 的【背景层】，或者将 `Drawble` 用于展示图片（即：配置了`app:stv_drawableAsBackground="true"`）时有效。
 
-  如果你需要一个圆形的效果，只需要将`corner`值设置为控件最大边长度的一半即可。比如：
+  如果你需要一个圆形的效果，只需要将`corner`值设置为控件最大边长度的一半，即：`corner = layout_width / 2`。比如：
 
   ```
   android:layout_width="80dp"
@@ -262,10 +276,10 @@
   如果你希望实现圆形头像，或者圆角背景图的效果，那最适合不过了。
 
 ## 4.3 控制每一个圆角
-  默认情况下，对 **SuperTextView** 设置`corner`会对控件的4个角都有效。当然也可以单独指定那些角需要圆角化。
+  默认情况下，对 **SuperTextView** 设置 `corner` 会对控件的4个角都有效。当然，也可以单独指定那一个角才是真正需要圆角化的。
 
 
-  在Xml
+  在 xml
 
   ```
   //设置左上角圆角
@@ -281,17 +295,17 @@
   app:stv_right_bottom_corner="true"
   ```
 
-  在Java中
+  在 Java 中
 
   ```
   //设置左上角圆角
   stv.setLeftTopCornerEnable( boolean);
   // 设置左下角圆角
-  stv.setLeftBottomCornerEnable() boolean);
+  stv.setLeftBottomCornerEnable( boolean);
   //设置右上角圆角
-  stv.setRightTopCornerEnable() boolean);
+  stv.setRightTopCornerEnable(boolean);
   //设置右下角圆角
-  stv.setRightBottomCornerEnable() boolean);
+  stv.setRightBottomCornerEnable(boolean);
   ```
 
 
@@ -311,7 +325,7 @@
 
 ![](https://raw.githubusercontent.com/chenBingX/img/master/stv/屏幕快照 2017-04-18 08.15.42.png)
 
-  只需要设置`app:stv_stroke_width`大于0即开启了边框功能，如果没有设置`app:stv_stroke_color`，会有默认的黑色边框。边框的圆角化也会受到`corner`属性的影响。
+  只需要设置 `app:stv_stroke_width` 大于0即开启了边框功能，如果没有设置 `app:stv_stroke_color`，会有默认的黑色边框。边框的圆角化也会受到 `corner` 属性的影响。
 
   边框的效果同样能够在展示图片的时候有效。
 
@@ -334,17 +348,17 @@
 
 ![](https://raw.githubusercontent.com/chenBingX/img/master/stv/文字描边.png)
 
-  开启文字描边的功能后，文字颜色只能够通过`app:stv_text_fill_color`来设置，不要使用`android:textColor` ！
+  ⚠️ 注意，开启文字描边的功能后，文字颜色只能够通过 `app:stv_text_fill_color` 来设置，不要使用 `android:textColor` ！
 
-  如果想要实现空心文字的效果，只需要将`app:stv_text_fill_color`设置为透明色，或者与背景色相同即可。
+  如果想要实现空心文字的效果，只需要将 `app:stv_text_fill_color` 设置为透明色，或者与背景色相同即可。
 
-  ![](http://ogemdlrap.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-05-18%20%E4%B8%8B%E5%8D%884.57.56.png)
+  ![](https://raw.githubusercontent.com/chenBingX/img/master/stv/空心文字.png)
 
 ## 4.6 状态图
 
-  **SuperTextView** 自带状态图功能，即Drawable、Drawable2，能够展示两个状态图。
+  **SuperTextView** 自带状态图功能。通过 **Drawable、Drawable2** 两个 **Drawable** 坑位，能够展示两个状态图。
 
-  与系统的原生TextView的Drawable不同，**SuperTextView** 的状态图能够准确的控制位置和大小。
+  不同于系统的原生 **TextView** 的 **Drawable**，**SuperTextView** 的 **Drawable** 能够精确的控制其位置和大小。
 
   ```
   # boolean类型。是否开启状态图1的功能。
@@ -404,7 +418,7 @@
 
   上图是一些使用一个状态图实现的功能，可以看到，你可以轻松准确的控制状态图的位置和大小。
 
-  现在，看看两个状态图能够干什么。
+  现在，来看看两个状态图能够干什么。
 
 ![](https://raw.githubusercontent.com/chenBingX/img/master/stv/屏幕快照 2017-11-16 01.46.23.png)
 
@@ -454,6 +468,8 @@ android:layout_height="100dp"
   />
   ```
 
+  如你所见，使用 **SuperTextView** 来处理此类 **ui** 需求实在是令人愉快，开发者从此可以不必再为这种效果而费脑的想该如何通过一个个控件叠加嵌套实现了。
+
 ## 4.7 渐变效果
 
   **SuperTextView** 支持通过配置简单的属性实现渐变色效果。
@@ -477,7 +493,7 @@ android:layout_height="100dp"
 
 ![](https://raw.githubusercontent.com/chenBingX/img/master/stv/渐变色.png)
 
-  这些属性也支持在Java中设置。
+  这些属性也支持在 Java 中设置。
 
   ```
   // 开启渐变色功能
@@ -539,14 +555,14 @@ android:layout_height="100dp"
   stv.setPressTextColor(-99);
   ```
 
-  - 如果要取消按压背景变色，只需设置`PressBgColor`为透明色，`Color.TRANSPARENT`。
-  - 如果要取消按压文字变色，只需设置`PressTextColor`为-99。
+  - 如果要取消按压背景变色，只需设置 `PressBgColor` 为透明色，`Color.TRANSPARENT`。
+  - 如果要取消按压文字变色，只需设置 `PressTextColor` 为-99。
 
 
 ## 4.9 展示图片
 ### 4.9.1 展示本地图片
 
-  前面有提到过，**SuperTextView** 可以通过状态图1变成一个`ImageView`。在设置好状态图1后，只需开启图片展示功能即可。
+  前面有提到过，**SuperTextView** 可以通过状态图1变成一个 `ImageView`。在设置好状态图1后，只需开启图片展示功能即可。
 
   ```
 <com.coorchice.library.SuperTextView
@@ -560,7 +576,7 @@ android:layout_height="100dp"
 
 ![](https://raw.githubusercontent.com/chenBingX/img/master/stv/展示本地图片.png)
 
-  需要注意的是，当将状态图1用于展示图片后，状态图1将不再具备状态图的功能，直到你关闭了图片展示功能，通过`stv.setDrawableAsBackground(false)`。
+  需要注意的是，当将状态图1用于展示图片后，状态图1将不再具备状态图的功能，直到你关闭了图片展示功能，通过 `stv.setDrawableAsBackground(false)`。
 
 ### 4.9.2 展示网络图片
 
@@ -598,19 +614,19 @@ android:layout_height="100dp"
   private Context context;
 
   public GlideEngine(Context context) {
-  this.context = context;
+    this.context = context;
   }
 
   @Override
   public void load(String url, final ImageEngine.Callback callback) {
-  Glide.with(context).load(url).into(new SimpleTarget<GlideDrawable>() {
-@Override
-public void onResourceReady(GlideDrawable resource, GlideAnimation<? super GlideDrawable> glideAnimation) {
-// 主要是通过callback返回Drawable对象给SuperTextView
-callback.onCompleted(resource);
-}
-});
-}
+    Glide.with(context).load(url).into(new SimpleTarget<GlideDrawable>() {
+        @Override
+        public void onResourceReady(GlideDrawable resource, GlideAnimation<? super              GlideDrawable> glideAnimation) {
+            // 主要是通过callback返回Drawable对象给SuperTextView
+            callback.onCompleted(resource);
+        }
+    });
+    }
 }
 ```
 
@@ -652,7 +668,7 @@ public void onPrepareLoad(Drawable placeHolderDrawable) {
 
 实现好 **Engine** 后，下一步就是要将其安装到 **SuperTextView** 中。
 
-建议可以在 Application的`onCreate()`中进行安装，这样当需要使用 **SuperTextView** 加载显示网络图片的时候，就能够用到三方图片框架了。
+建议可以在 Application的 `onCreate()` 中进行安装，这样当需要使用 **SuperTextView** 加载显示网络图片的时候，就能够用到三方图片框架了。
 
 ```
 public class STVApplication extends Application {
@@ -673,6 +689,8 @@ ImageEngine.install(new GlideEngine(this));
 
 只需简单两步，即可完成任意三方图片加载框架的适配。
 
+当你通过 **Drawable** 坑位展示背景图片时，所有的圆角和边框设置都同样有效。
+
 ## 4.10 Adjuster
 
 **Adjuster** 被设计用来在 **SuperTextView** 的绘制过程中插入一些操作。这具有非常重要的意义。比如，实时的改变控件的状态，制作复杂的动画效果或者交互效果。
@@ -682,19 +700,19 @@ public class YourAdjuster extends SuperTextView.Adjuster {
 
 @Override
 protected void adjust(SuperTextView v, Canvas canvas) {
-//do your business。
+    //do your business。
 }
 
 @Override
 public boolean onTouch(SuperTextView v, MotionEvent event) {
-//you can get the touch event.
-//If want to get a series of touch event, you must return true here.
+    //you can get the touch event.
+    //If want to get a series of touch event, you must return true here.
 }
 
 }
 ```
 
-通过重写 **Adjuster** 的 `adjust()` 方法，可以获取每次绘制过程中控件的`Canvas`对象，这意味着可以在绘制过程中从外部插入一些新的元素。当然，单单通过 **SuperTextView** 的实例修改其状态也是可以的。
+通过重写 **Adjuster** 的 `adjust()` 方法，可以获取每次绘制过程中控件的 `Canvas` 对象，这意味着可以在绘制过程中从外部插入一些新的元素。当然，单单通过 **SuperTextView** 的实例修改其状态也是可以的。
 
 通过重写 **Adjuster** 的 `onTouch()` 方法，可以获取每一次控件的触摸事件，如果在该方法中返回true，表明该 **Adjuster** 需要获取后续的触摸事件，同时也会使得 **SuperTextView** 在整个控件树中回去拦截触摸事件。配合 `adjust()` 可以实现一些复杂的交互效果。值得注意的是，如果在 **SuperTextView** 之前，已经有控件拦截的触摸事件，那么其中的 **Adjuster** 将无法获取到触摸事件。
 
@@ -719,7 +737,10 @@ stv.addAdjuster(mAdjuster);
 如果你想要移除一个 **Adjuster**，通过下面方法来实现。
 
 ```
+// 移除指定位置的 Adjuster
 stv.removeAdjuster(index)
+// 移除指定的 Adjuster
+stv.removeAdjuster(adjuster)
 ```
 
 ### 4.10.2 设置Adjuster的层级
@@ -772,11 +793,40 @@ stv.stopAnim();
 stv.setFrameRate(30);
 ```
 
+### 4.10.4 获得 Adjuster 的添加和移除事件
+
+**Adjuster** 中包含了两个函数：
+
+- `onAttach()`：当 **Adjuster** 被设置到一个 **SuperTextView** 中时会被调用。
+- `onDetach()`：当 **Adjuster** 被从一个 **SuperTextView** 中移除时会被调用。
+
+通过在 Adjuster 中重写这两个函数，开发者可以在正确的时机进行状态注册、初始化，或者取消注册、释放资源等操作。
+
+```
+public class MyAdjuster extends SuperTextView.Adjuster{
+
+    @Override
+    protected void adjust(SuperTextView superTextView, Canvas canvas) {
+
+    }
+
+    @Override
+    public void onAttach(SuperTextView stv) {
+      // 当 Adjuster 被加入一个 SuperTextView 时会被调用
+    }
+
+    @Override
+    public void onDetach(SuperTextView stv) {
+      // 当 Adjuster 被从 SuperTextView 移除时会被调用
+    }
+}
+```
+
 ## 4.11 修改 StateDrawable 颜色
 
-![](https://raw.githubusercontent.com/chenBingX/img/master/stv/着色.png)  
+![](https://raw.githubusercontent.com/chenBingX/img/master/stv/着色.png)
 
-开发者可以轻松的改变一个图标的颜色，而不用再增加一个仅仅是颜色不同的图标到项目中。这项技术将为你的 Android 应用程序带来一次瘦身的机遇。  
+开发者可以轻松的改变一个图标的颜色，而不用再增加一个仅仅是颜色不同的图标到项目中。这项技术将为你的 Android 应用程序带来一次瘦身的机遇。
 
 ```
 # 修改 drawable 的颜色
@@ -793,11 +843,11 @@ app:stv_state_drawable2_tint="@color/red"
 
 ## 4.12 修改 StateDrawable 旋转角度
 
-SuperTextView 被赋予了改变 StateDrawable 形态的能力。同样的一张图，开发者可以组合出无数种可能。  
+**SuperTextView** 被赋予了改变 **StateDrawable** 形态的能力。同样的一张图，开发者可以组合出无数种可能。
 
-![](https://raw.githubusercontent.com/chenBingX/img/master/stv/旋转.png)  
+![](https://raw.githubusercontent.com/chenBingX/img/master/stv/旋转.png)
 
-只需简单的几行代码，你便可以随心所欲的变换任何一张图片。  
+只需简单的几行代码，你便可以随心所欲的变换任何一张图片。
 
 ```
 # 修改 drawable 的旋转角度
@@ -807,20 +857,22 @@ app:stv_state_drawable_rotate="90"
 app:stv_state_drawable2_rotate="90"
 ```
 
-无需复杂的代码，SuperTextView 一如既往的简洁、优雅。  
+无需复杂的代码，**SuperTextView** 一如既往的简洁、优雅。
 
-同样，在 Java 代码中，也提供了对应的 set/get 函数。
+同样，在 Java 代码中，也提供了对应的 `set/get· 函数。
 
 这项能力，可以有效的帮助开发者将 Android 应用的体积向着极致的方向压缩。
+
+通过和 **Drawable** 着色功能的联合使用，开发者可以将应用中原本必要存在的 **.png** 统统移除掉。比如，箭头等。开发者只需要一张箭头图片，就可以通过修改其颜色、旋转角度、大小等属性，组合出任何需求的箭头 **icon**。
 
 
 ## 4.13 设置文字渐变
 
-![](https://raw.githubusercontent.com/chenBingX/img/master/stv/文字渐变色.png)  
+![](https://raw.githubusercontent.com/chenBingX/img/master/stv/文字渐变色.png)
 
-这就是渐变文字！  
+这就是渐变文字！
 
-SuperTextView 所提供的可能是目前为止实现渐变文字最简洁、优雅的解决方案。只需要简单的配置，就能实现酷炫的渐变文字效果。
+**SuperTextView** 所提供的可能是目前为止实现渐变文字最简洁、优雅的解决方案。只需要简单的配置，就能实现酷炫的渐变文字效果。
 
 ```
 # 是否启用渐变色文字
@@ -840,7 +892,7 @@ app:stv_textShaderEndColor="@color/yellow"
 app:stv_textShaderMode="leftToRight"
 ```
 
-这些属性也在 Java 中开放了 set/get 接口，便于开发者随时动态的修改它们。
+这些属性也在 Java 中开放了 `set/get` 接口，便于开发者随时动态的修改它们。
 
 
 ---
